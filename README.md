@@ -1,3 +1,4 @@
 # tugas2
 
-A new Flutter project.
+123230085
+Tugas 2 Prak TPM IF-G
