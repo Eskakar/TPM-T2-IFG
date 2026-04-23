@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
             label: "Tambah",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
+            icon: Icon(Icons.swap_horizontal_circle),
             label: "Kurs API",
           ),
         ],

@@ -31,6 +31,9 @@ class TransaksiController {
     await _boxTransaksi.deleteAt(index);
   }
 
+  Future<void> clearAll() async {
+    await _boxTransaksi.clear();
+  }
   double get totalIncome =>
       listTransaksi
           .where((t) => t.jenisTransaksi == 'income')

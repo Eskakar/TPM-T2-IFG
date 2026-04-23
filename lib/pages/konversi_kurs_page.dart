@@ -88,7 +88,7 @@ class _KonversiKursPageState extends State<KonversiKursPage> {
               prefixText: "Rp ",
               hintText: "Input jumlah uang...",
               filled: true,
-              fillColor: Colors.grey.shade100,
+              fillColor: const Color.fromARGB(255, 208, 249, 185),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none,
@@ -102,7 +102,8 @@ class _KonversiKursPageState extends State<KonversiKursPage> {
           DropdownButtonFormField<String>(
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.grey.shade100,
+              hint: Text(_matauang  ),
+              fillColor: const Color.fromARGB(255, 208, 249, 185),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none,

@@ -13,7 +13,7 @@ class TambahTransaksiPage extends StatefulWidget {
 class _TambahTransaksiPageState extends State<TambahTransaksiPage> {
   final _amountController = TextEditingController();
   final _kategoriController = TextEditingController();
-  String type = 'expense';
+  String? type;
   
   void _dispose(){
     _amountController.dispose();
@@ -34,11 +34,16 @@ class _TambahTransaksiPageState extends State<TambahTransaksiPage> {
       return;
     };
 
+    if(type == null){
+      _showSnackBar("Tipe transaksi belum dipilih", Colors.red);
+      return;
+    };
+
     final trx = TransaksiModel(
       nominal: amount,
       kategori: kategori,
       tanggal: DateTime.now(),
-      jenisTransaksi: type,
+      jenisTransaksi: type!,
     );
     TransaksiController().addTransaksi(trx);
     _showSnackBar("Berhasil menyimpan data baru", Colors.green);
@@ -135,8 +140,13 @@ class _TambahTransaksiPageState extends State<TambahTransaksiPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
+                  backgroundColor: Colors.green[700],
                 ),
-                child: const Text("Simpan Transaksi"),
+                child: const Text("Simpan Transaksi",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],

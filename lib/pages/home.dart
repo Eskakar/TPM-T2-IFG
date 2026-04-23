@@ -12,11 +12,47 @@ class Home extends StatefulWidget {
 class _MyWidgetState extends State<Home> {
   final _controller = TransaksiController();
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("App Keuangan Pribadi",
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.delete),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text("Reset Data"),
+                  content: Text("Yakin ingin menghapus semua transaksi?"),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text("Batal"),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        await TransaksiController().clearAll();
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Hapus",
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
